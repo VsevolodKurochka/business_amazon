@@ -363,9 +363,21 @@ End:  HIDDEN AND VISIBLE UTILITIES
     float: right;
   }
 }
+@media (max-width: 1199px) {
+  .max-lg-negative {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
 @media (min-width: 1025px) {
   .pull-md-right {
     float: right;
+  }
+}
+@media (max-width: 1024px) {
+  .max-md-negative {
+    margin-left: -15px;
+    margin-right: -15px;
   }
 }
 @media (min-width: 768px) {
@@ -373,14 +385,32 @@ End:  HIDDEN AND VISIBLE UTILITIES
     float: right;
   }
 }
+@media (max-width: 767px) {
+  .max-sm-negative {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
 @media (min-width: 480px) {
   .pull-xs-right {
     float: right;
   }
 }
+@media (max-width: 479px) {
+  .max-xs-negative {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
 @media (min-width: 320px) {
   .pull-exs-right {
     float: right;
+  }
+}
+@media (max-width: 319px) {
+  .max-exs-negative {
+    margin-left: -15px;
+    margin-right: -15px;
   }
 }
 /* =====================
@@ -484,6 +514,13 @@ Start: TEXT
   margin-bottom: 15px;
 }
 
+.title-small {
+  margin-bottom: 20px;
+}
+.title-small.no-m {
+  margin-bottom: 0;
+}
+
 .h1 {
   line-height: 1.1;
   margin: 0 0 30px;
@@ -549,7 +586,7 @@ Start: TEXT
 }
 @media (max-width: 1024px) {
   .h3 {
-    font-size: 36px;
+    font-size: 29px;
   }
 }
 @media (max-width: 767px) {
@@ -576,7 +613,7 @@ Start: TEXT
     font-size: 20px;
   }
 }
-.text-center, .header-menu, .footer {
+.text-center, .title-small, .header-menu, .footer, .freedom {
   text-align: center;
 }
 .text-left {
@@ -660,7 +697,7 @@ Start: Connect fonts
   font-family: pfdindisplaypro-black;
   src: local("pfdindisplaypro-black"), url(../fonts/pfdindisplaypro-black.ttf);
 }
-.blacks, .subtitle, .h1, .h3, .practicum .skew-b-small {
+.blacks, .subtitle, .h1, .h3, .btn, .practicum .skew-b-small, .freedom-title {
   font-family: pfdindisplaypro-black;
 }
 
@@ -906,7 +943,7 @@ Start: START FOOTER
 /* =====================
 End:  START FOOTER
 ======================== */
-.bg-corp, .list-circle li:after, .bg-yellow, .skew-b:before, .skew-b-small:before, .skew-b-big:before {
+.bg-corp, .background-yellow, .list-circle li:after, .bg-yellow, .skew-b:before, .skew-b-small:before, .skew-b-big:before {
   background-color: #fdbc30;
 }
 
@@ -914,14 +951,17 @@ End:  START FOOTER
   background-color: #f9f9f9;
 }
 
+.transition, .btn, .btn-effect:before, .btn-yellow:before, .btn-yellow:after {
+  transition: all .3s;
+}
+
 .btn {
   border: none;
   border-radius: 3px;
   max-width: 100%;
-  padding: 10px 40px;
+  padding: 20px 40px;
   position: relative;
   overflow: hidden;
-  transition: all .3s;
   text-decoration: none;
   z-index: 2;
   font-size: 17px;
@@ -930,7 +970,6 @@ End:  START FOOTER
 .btn-effect:before {
   content: "";
   position: absolute;
-  transition: all .3s;
   z-index: -1;
   width: 100%;
   height: 0;
@@ -942,6 +981,36 @@ End:  START FOOTER
 .btn-effect:hover:before {
   height: calc(450% - 40px);
   opacity: 1;
+}
+.btn-yellow {
+  background-image: -moz-linear-gradient(to top, #fb9e00, #fcb534);
+  background-image: -o-linear-gradient(to top, #fb9e00, #fcb534);
+  background-image: -ms-linear-gradient(to top, #fb9e00, #fcb534);
+  background-image: linear-gradient(to top, #fb9e00, #fcb534);
+  text-shadow: 0 1px #ee8724;
+}
+.btn-yellow:before, .btn-yellow:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: -1;
+}
+.btn-yellow:after {
+  bottom: 0;
+  background-color: #ee8724;
+}
+.btn-yellow:before {
+  top: 0;
+  opacity: 0;
+  background-color: #fdbc30;
+}
+.btn-yellow:hover:before {
+  opacity: 1;
+}
+.btn-yellow:hover:before, .btn-yellow:hover:after {
+  height: 50%;
 }
 @media (min-width: 768px) {
   .btn-single {
@@ -1004,13 +1073,13 @@ End:  START FOOTER
   height: 5px;
 }
 
-.vertical-image:before, .practicum-img:before {
+.vertical-image:before, .practicum-img:before, .freedom-img:before {
   content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-.vertical-image img, .practicum-img img {
+.vertical-image img, .practicum-img img, .freedom-img img {
   max-height: 100%;
   vertical-align: middle;
 }
@@ -1045,14 +1114,13 @@ End:  START FOOTER
 .skew-b-small:before {
   width: 25px;
   height: 20px;
-  top: 50%;
-  margin-top: -10px;
+  top: 2px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .skew-b-small, .skew-b-big {
     margin-bottom: 30px;
   }
-  .skew-b-small:before, .skew-b-big:before {
+  .skew-b-big:before {
     left: 50%;
   }
   .skew-b-big:before {
@@ -1103,6 +1171,52 @@ End:  START FOOTER
 }
 .practicum-title {
   padding: 0 10px;
+}
+
+.income {
+  padding-bottom: 0;
+}
+.income-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  background: url("../img/banknota.jpg") left 0 no-repeat;
+  background-size: cover;
+}
+.income-inner-row {
+  margin-top: 55px;
+  padding: 55px 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.freedom {
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .freedom {
+    min-height: 180px;
+    margin-bottom: 30px;
+  }
+  .freedom-img {
+    margin-bottom: 15px;
+  }
+}
+.freedom-img {
+  height: 80px;
+}
+.freedom-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.successful {
+  background: url("../img/successful.jpg") 0 0 no-repeat;
+  background-size: cover;
 }
 
 /* ===================== 

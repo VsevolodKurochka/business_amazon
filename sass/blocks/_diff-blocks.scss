@@ -5,17 +5,24 @@
   &-grey{
     background-color: #f9f9f9;
   }
+  &-yellow{
+    @extend .bg-corp;
+  }
+}
+.transition{
+  transition: all .3s;
 }
 .btn {
   border: none;
   border-radius: 3px;
   max-width: 100%;
-  padding: 10px 40px;
+  padding: 20px 40px;
   position: relative;
   overflow: hidden;
-  transition: all .3s;
+  @extend .transition;
   text-decoration: none;
   z-index: 2;
+  @extend .blacks;
   @extend .block-inline;
   @include size(text_default);
   @include color("white");
@@ -23,7 +30,7 @@
    &:before{
       content: "";
       position: absolute;
-      transition: all .3s;
+      @extend .transition;
       z-index: -1;
       width: 100%;
       height: 0;
@@ -36,6 +43,42 @@
       &:before{
         height: calc(450% - 40px);
         opacity: 1;
+      }
+    }
+  }
+  &-yellow{
+    background-image: -moz-linear-gradient(to top, #fb9e00, #fcb534);
+    background-image: -o-linear-gradient(to top, #fb9e00, #fcb534);
+    background-image: -ms-linear-gradient(to top, #fb9e00, #fcb534);
+    background-image: linear-gradient(to top, #fb9e00, #fcb534);
+    text-shadow: 0 1px #ee8724;
+    &:before,
+    &:after{
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: -1;
+      @extend .transition;
+    }
+    &:after{
+      bottom: 0;
+      background-color: #ee8724;
+      
+    }
+    &:before{
+      top: 0;
+      opacity: 0;
+      background-color: #fdbc30;
+    }
+    &:hover{
+      &:before{
+        opacity: 1
+      }
+      &:before,
+      &:after{
+        height: 50%;
       }
     }
   }
@@ -197,14 +240,15 @@
       &:before{
         width: 25px;
         height: 20px;
-        top: 50%;
-        margin-top: -10px;
+        top: 2px;
       }
     }
-    @include resp-max(sm){
+    @include resp-max(md){
       &-small,
       &-big{
         margin-bottom: 30px;
+      }
+      &-big{
         &:before{
           left: 50%;
         }
@@ -249,4 +293,46 @@
   &-title{
     padding: 0 10px;
   }
+}
+.income{
+  padding-bottom: 0;
+  &-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    @include bg("../img/banknota.jpg", left 0, no-repeat, cover);
+  }
+  &-inner-row{
+    margin-top: 55px;
+    padding: 55px 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+.freedom{
+  @extend .text-center;
+  margin-bottom: 15px;
+  @include resp-min(sm){
+    min-height: 180px;
+    margin-bottom: 30px;
+    &-img{
+      margin-bottom: 15px;
+    }
+  }
+  &-img{
+    @extend .vertical-image;
+    height: 80px;
+  }
+  &-title{
+    font-size: 20px;
+    @extend .blacks;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+}
+.successful{
+  @include bg("../img/successful.jpg", 0 0 , no-repeat , cover);
 }

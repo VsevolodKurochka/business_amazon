@@ -25,6 +25,15 @@
   @extend .blacks;
   margin-bottom: 15px;
 }
+.title{
+  &-small{
+    margin-bottom: 20px;
+    @extend .text-center;
+    &.no-m{
+      margin-bottom: 0;
+    }
+  }
+}
 .h{
   &1,&3{
     @extend .blacks;
@@ -93,7 +102,7 @@
 }
 @include resp-max(md){
   .h3{
-    @include size(default_title);
+    font-size: 29px;
   }
 }
 @include resp-max(sm){

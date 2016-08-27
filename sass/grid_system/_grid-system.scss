@@ -106,12 +106,18 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 @each $br-name, $br-value in $breakpoints{
-  @include resp-min(#{$br-name}){
+  @include resp-min($br-name){
     .pull-#{$br-name}-right{
       float: right;
     }
     // .pull-#{$breakpoint-name}-left{
     //   float: left;
     // }
+  }
+  @include resp-max($br-name){
+    .max-#{$br-name}-negative{
+      margin-left: -15px;
+      margin-right: -15px;
+    }
   }
 }
