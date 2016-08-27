@@ -1,0 +1,39 @@
+body{
+  @extend .regular;
+  @include color("black");
+  @include size(text_default);
+  line-height: 1.42857143;
+}
+.block{
+  &-inline{
+    display: inline-block;
+  }
+}
+img{
+  @extend .block-inline;
+  max-width: 100%;
+}
+input{
+  &:focus{
+    &::-webkit-input-placeholder{
+      color: transparent;
+    }
+    &:-moz-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+}
+a,button{
+  cursor: pointer;
+}
+.z-index{
+  &-1{
+    z-index: 1;
+  }
+}

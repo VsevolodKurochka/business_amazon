@@ -1,0 +1,59 @@
+//MIXIN FONT
+@mixin connect-font($font,$class_name: $font){
+  @font-face{
+    font-family: $font;
+    src: local("#{$font}"), 
+    url(../fonts/#{$font}.ttf);
+  }
+  @if $class_name != null{
+    .#{$class_name}{
+      font-family: $font;
+    }
+  }@else{
+    .#{$font}{
+      font-family: $font;
+    }
+  }
+}
+
+// MIXIN BACKGROUND
+@mixin bg($url, $pos, $repeat, $size){
+	background: url($url) $pos $repeat;
+	background-size: $size;
+}
+//CREATE COLUMNS
+@mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
+  @for $i from 1 through $columns{
+    @if $class != null{
+      .vcol-#{$class}-#{$i}{
+        width: ($width/$columns) * $i;
+      }      
+    }
+    @if $push != "not-push"{
+      .vcol-#{$class}-push-#{$i}{
+        left: ($width/$columns) * $i;
+      }      
+    }
+    @if $pull != "not-pull"{
+      .vcol-#{$class}-pull-#{$i}{
+        right: ($width/$columns) * $i;
+      }
+    }
+    @if $offset != "not-offset" {
+      .vcol-#{$class}-offset-#{$i}{
+        margin-left: ($width/$columns) * $i;
+      }
+    }
+  }
+}
+// HIDDEN AND VISIBLE UTILITIES
+@mixin visibility-hidden($hidden){
+  .hidden-#{$hidden}{
+    display: none !important;
+  }
+}
+@mixin visibility-visible($visible){
+  .visible-#{$visible}{
+    display: block !important;
+  }
+}

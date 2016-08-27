@@ -1,0 +1,59 @@
+/* ===================== 
+Start: RESET      
+======================== */
+@import '_reset.scss';
+/* =====================
+End:  RESET
+======================== */
+
+// VARIABLES
+@import '_var.scss';
+
+// MIXINS
+@import '_mixins.scss';
+
+// MEDIA
+@import '_media.scss'; 
+
+/* ===================== 
+Start: GRID SYSTEM      
+======================== */
+@import 'grid_system/_grid-system.scss'; 
+/* =====================
+End:  GRID SYSTEM
+======================== */
+
+
+
+//COLOR SIZE
+@import '_color-size.scss';
+
+
+/* ===================== 
+Start: TEXT      
+======================== */
+@import '_text.scss';
+/* =====================
+End:  TEXT
+======================== */
+
+//======================
+//FONTS
+@import '_fonts.scss'; 
+//======================
+
+/* ===================== 
+Start: MAIN STYLES      
+======================== */
+@import '_main.scss';
+/* =====================
+End:  MAIN STYLES
+======================== */
+
+/* ===================== 
+Start: DIFFERENT BLOCKS      
+======================== */
+@import 'blocks/_main.scss';
+/* =====================
+End:  DIFFERENT BLOCKS
+======================== */

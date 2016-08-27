@@ -1,0 +1,125 @@
+.ttu{
+  text-transform: uppercase;
+}
+.tdu{
+  text-decoration: underline;
+}
+.underline{
+  @extend .relative;
+  padding-bottom: 30px;
+  &:after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: 0;
+    width: 70px;
+    height: 2px;
+    background-color: map-get($colors, "corporative");
+  }
+}
+.h{
+  &1{
+    line-height: 1.1;
+    margin: 0 0 30px;
+    @extend .blacks;
+  }
+  &2{
+    @extend .regular;
+    font-weight: 100;
+  }
+  &4{
+    color: #272727;
+    &.s-m{
+      margin-bottom: 25px;
+    }
+    &.b-m{
+      margin-bottom: 40px;
+    }
+  }
+  &3{
+    text-align: center;
+  }
+}
+@include resp-min(sm){
+  .h1{
+    font-size: 36px;
+  }
+  .h2{
+    font-size: 18px;
+  }
+  .h3{
+    margin-bottom: 20px;
+    &.m-m{
+      margin-bottom: 50px;
+    }
+    &.b-m{
+      margin-bottom: 70px;
+    }
+  }
+  .h4{
+    @include size(text_title);
+  }
+}
+@include resp-min(md){
+  .h1{
+    font-size: 50px;
+  }
+  .h2{
+    font-size: 20px;
+  }
+  .h3{
+    @include size(default_title);
+  }
+}
+@include resp-max(md){
+  .h3{
+    @include size(default_title);
+  }
+}
+@include resp-max(sm){
+  .h{
+    &1{
+      font-size: 24px;
+      margin: 15px 0;
+    }
+    &2{
+      @include size(text_default);
+      margin: 15px 0;
+    }
+    &3{
+      @include size(text_title);
+      margin-bottom: 30px;
+    }
+  }
+}
+@include resp-max(xs){
+  .h{
+    &3{
+      @include size(text_big);
+    }
+  }
+}
+.text{
+  &-center{
+    text-align: center;
+  }
+  &-left{
+    text-align: left;
+  }
+  &-right{
+    text-align: right;
+  }
+}
+@each $br-name, $br-value in $breakpoints{
+  @include resp-max($br-name){
+    .max-#{$br-name}-center{
+      text-align: center;
+    }
+  }
+  @include resp-min($br-name){
+    .min-#{$br-name}-right{
+      text-align: right;
+    }
+  }
+}

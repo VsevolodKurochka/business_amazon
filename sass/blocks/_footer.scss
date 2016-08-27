@@ -1,0 +1,21 @@
+/* ===================== 
+Start: START FOOTER      
+======================== */
+.footer{
+	@extend .cf;
+	padding: 10px 15px;
+	background-color: #131313;
+	@extend .text-center;
+	@extend .white;
+	&-b{
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 15px;
+	}
+	a{
+		text-decoration: none;
+	}
+}
+/* =====================
+End:  START FOOTER
+======================== */

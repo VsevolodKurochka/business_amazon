@@ -1,0 +1,123 @@
+/* ===================== 
+Start: COLUMNS      
+======================== */
+@include make-column(xs,"not-push","not-pull","not-offset");
+@include resp-min(sm){
+  @include make-column(sm,"not-push","not-pull","not-offset");
+}
+@include resp-min(md){
+  @include make-column(md,"not-push","not-pull","not-offset");
+}
+@include resp-min(lg){
+  @include make-column(lg,"not-push","not-pull","not-offset");
+}
+
+/* =====================
+End:  COLUMNS
+======================== */
+
+/* ===================== 
+Start: HIDDEN AND VISIBLE UTILITIES      
+======================== */
+@include resp-min(lg){
+  @include visibility-hidden(lg);
+  //@include visibility-visible(lg);
+}
+@include resp-min(md){
+  @include resp-max(lg){
+    @include visibility-hidden(md);
+    //@include visibility-visible(md);    
+  }
+}
+@include resp-min(sm){
+  @include resp-max(md){
+    @include visibility-hidden(sm);
+    //@include visibility-visible(sm);   
+  }
+}
+@include resp-max(sm){
+  @include visibility-hidden(xs);
+  //@include visibility-visible(xs); 
+}
+/* =====================
+End:  HIDDEN AND VISIBLE UTILITIES
+======================== */
+.relative{
+  position: relative;
+}
+%global-block{
+  min-height: 1px;
+  padding-left: $gutter;
+  padding-right: $gutter; 
+  @extend .relative;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cf{
+  &:after, &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+  @extend .relative;
+}
+.row{
+  @extend .cf;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+[class*="col-"] {
+  @extend %global-block;
+  float: left;
+}
+
+.vcontainer, .vcontainer-small{
+  @extend %global-block;
+  @extend .cf;
+  @extend .center-block;
+}
+.vcontainer{
+  @include resp-min(lg){
+    width: $container;
+  }
+  &-small{
+    @include resp-min(lg){
+      width: $container-small;
+    }
+  }
+}
+%padding-block{
+  @include resp-min(sm){
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+  @include resp-max(sm){
+    padding-top: 50px;
+    padding-bottom: 50px;
+  } 
+}
+.vsection{
+  @extend .cf;
+  @extend %padding-block;
+  @extend .relative;
+  @include resp-max(lg){
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@each $br-name, $br-value in $breakpoints{
+  @include resp-min(#{$br-name}){
+    .pull-#{$br-name}-right{
+      float: right;
+    }
+    // .pull-#{$breakpoint-name}-left{
+    //   float: left;
+    // }
+  }
+}

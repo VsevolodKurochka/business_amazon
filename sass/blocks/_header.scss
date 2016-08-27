@@ -1,0 +1,176 @@
+/* ===================== 
+Start: HEADER      
+======================== */
+.header {
+	@extend .cf;
+	padding: 30px 0 25px;
+	min-height: 50px;
+	@include bg('../img/header.jpg', center 70%, no-repeat,cover);
+	&-phone{
+		display: inline-block;
+		padding-left: 30px;
+		@extend .relative;
+		&:after{
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -11.5px;
+			width: 23px;
+			height: 23px;
+			@include bg("../img/phone.png", 0 0, no-repeat, cover);
+		}
+		span{
+			@extend .grey;
+		}
+	}
+	&-menu{
+		transition: all ease .5s;
+		@extend .text-center;
+		li{
+			display: inline-block;
+			padding: 7.5px 10px;
+			@include resp-min(lg){
+				padding: 7.5px 25px;
+				a{
+					&:before{
+						right: -30px;
+					}
+				}
+			}
+ 			vertical-align: middle;
+			a{
+				text-decoration: none;
+				position: relative;
+				color: inherit;
+				&:after{
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 0;
+					height: 1px;
+					background-color: map-get($colors,corporative);
+  					transition: all ease .5s;
+  					border-radius: 10px;
+				}
+				@include resp-min(md){
+					&:before{
+						content: "/";
+						position: absolute;
+						right: -15px;
+						top: 50%;
+						margin-top: -12px;
+						@include color(corporative);
+					}
+				}
+				&:hover{
+					&:after{
+						width: 100%;
+					}
+				}
+			}
+			&:last-child{
+				a{
+					&:before{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&-container-text{
+		@include resp-min(sm){
+			margin-top: 40px;
+		}
+	}
+	&-date{
+		margin-top: 50px;
+		margin-bottom: 50px;	
+	}
+	
+	@include resp-min(sm){
+		&-date{
+			margin-bottom: 150px;
+		}
+		&-arrow{
+			margin-top: 25px;
+		}
+	}
+	.skew-wrap{
+		p{
+			@include resp-min(sm){
+				@include resp-max(md){
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+@include resp-min(md){
+	.navbar-toggle{
+		display: none;
+		position: relative;
+	}
+}
+@include resp-max(md){
+	.header{
+		&-menu{
+				text-align: center;
+		    display: block;
+		    width: 200px;
+		    position: fixed;
+		    right: -200px;
+		    top: 30px;
+		    background-color: #ddd;
+		    z-index: 10;
+		    &-open{
+		    	right: 0;
+		    	left: auto;
+		    	overflow-y: auto;
+			}
+		}
+		&-logo{
+			margin-bottom: 15px;
+		}
+	}
+	.navbar-toggle{
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 11;		
+	}
+}
+.navbar-toggle{
+    float: right;
+    padding: 9px 10px;
+    background-color: #EAEAEA;
+    border: none;
+    border-radius: 4px;
+    &-open{
+    	.icon-bar-1{
+		    transform: rotate(45deg) translate(5px,5px);
+    	}
+    	.icon-bar-2{
+			opacity: 0;
+    	}
+    	.icon-bar-3{
+			transform: rotate(-45deg) translate(4px, -3px);
+    	}
+    }
+	.icon-bar{
+	    display: block;
+	    width: 22px;
+	    height: 2px;
+	    border-radius: 1px;
+        background-color: #888;
+        transition: all ease .25s;
+        transform-origin: 50% 100%;
+	}
+	.icon-bar:not(.icon-bar-1){
+		margin-top: 4px;
+	}
+}
+/* =====================
+End:  HEADER
+======================== */

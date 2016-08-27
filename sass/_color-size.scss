@@ -1,0 +1,59 @@
+// COLOR
+$colors:(
+	"black"      	: #252525,
+	"grey"        : #707070,
+	"white"      	: #fff,
+	"green"      	: #5bb85d,
+	"corporative"	: #fdbc30
+);
+
+// SIZE
+$sizes: (
+	text_smaller    : 12px,
+	text_small      : 14px,
+	text_default    : 17px,
+	text_big   			: 20px,
+	text_title      : 24px,
+	small_title  		: 30px,
+	default_title   : 36px,
+	normal_title 		: 48px,
+	big_title    		: 80px
+);
+/* ===================== 
+Start: COLOR AND SIZE      
+======================== */
+/* COLOR */
+@mixin color($color){
+	$value: map-get($colors, $color);
+	@if $value != null{
+		color: $value
+	}
+	@else{
+		@error 'Sorry, no colors #{$color}';
+	}
+}
+@each $color-name, $color-value in $colors{
+	.#{$color-name}{
+		color: #{$color-value};
+	}
+}
+
+/*SIZE*/
+@mixin size($size){
+	$value: map-get($sizes, $size);
+	@if $value != null{
+		font-size: $value;
+	}
+	@else{
+		@error 'Sorry, no size #{$size}';
+	}
+}
+@each $size-name, $size-value in $sizes{
+	.#{$size-name}{
+		font-size: #{$size-value};
+	}
+}
+
+/* =====================
+End:  COLOR AND SIZE
+======================== */
