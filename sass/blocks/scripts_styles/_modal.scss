@@ -2,7 +2,10 @@
 Start: MODAL      
 ======================== */
 .main-form {
-  width: 250px;
+  width: 100%;
+  @include resp-min(sm){
+    width: 300px;
+  }
   margin: 0 auto;
 }
 
@@ -10,13 +13,20 @@ Start: MODAL
   border: 1px solid #eeeeee;
   border-radius: 5px;
   display: inline-block;
-  text-align: center;
+  text-align: left;
   width: 100%;
   max-width: 100%;
   padding: 15px;
   margin-bottom: 15px;
   color: #000;
-  font-style: italic;
+  font-size: 15px;
+  outline: none;
+  @extend .regular;
+  @extend .transition;
+  &:focus{
+    border-color: map-get($colors, "corporative");
+  }
+  box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
 }
 
 .main-form .btn {
@@ -76,7 +86,7 @@ Start: MODAL
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 10px;
+  margin: 10px 0 10px 17px;
 }
 
 .modal-content {
@@ -156,7 +166,7 @@ Start: MODAL
 
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 300px;
+    width: 400px;
     margin: 30px auto;
   }
   .modal-dialog-big{
@@ -198,6 +208,11 @@ Start: MODAL
       margin-bottom: 10px;
       padding-left: 10px;
     }
+  }
+  &-title{
+    text-align: center;
+    font-family: inherit;
+    font-weight: normal;
   }
   &-header{
     .h2{

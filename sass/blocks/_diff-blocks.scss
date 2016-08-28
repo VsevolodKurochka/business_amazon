@@ -256,12 +256,31 @@
       }
     }
   }
+  &-inline{
+    display: inline-block;
+    @extend .relative;
+    @extend .blacks;
+    &:after{
+      content: "";
+      position: absolute;
+      left: -10%;
+      top: 0;
+      width: 120%;
+      height: 100%;
+      z-index: -1;
+      -ms-transform: skewX(-30deg); 
+      -webkit-transform: skewX(-30deg);
+      transform: skewX(-30deg); 
+      @extend .bg-corp;
+    }
+  }
 }
 .arrow{
   &-down{
     display: inline-block;
     width: 46px;
     height: 50px;
+    cursor: pointer;
     @include bg("../img/arrow.png", 0 0, no-repeat, cover);
   }
 }
@@ -409,11 +428,14 @@
 }
 .step{
   @extend .text-center;
-  min-height: 180px;
+  
   margin-bottom: 15px;
   &-img{
     @extend .vertical-image;
     height: 100px;
+  }
+  @include resp-min(sm){
+    min-height: 180px;
   }
 }
 .variant{
@@ -463,8 +485,11 @@
   }
 }
 .when{
-  &-wrap{
-    margin-bottom: 50px;
+  
+  @include resp-min(md){
+    &-wrap{
+      margin-bottom: 50px;
+    }  
   }
   &-b{
     @extend .text-center;
@@ -478,7 +503,7 @@
       font-size: 20px;
     }
     &-text{
-      @include resp-min(sm){
+      @include resp-min(md){
         padding: 0 30px;
       }
     }
@@ -568,6 +593,148 @@
 .doing{
   @include bg("../img/doing.jpg", 0 0, no-repeat, cover);
 }
-.review-wrap{
-  @include bg("../img/review.jpg", 0 0, no-repeat, cover);
+.review{
+  padding: 0 35px;
+  &-wrap{
+    @include bg("../img/review.jpg", 0 0, no-repeat, cover);
+  }
+  &-header{
+    &-inf{
+      &-name{
+        @extend .title-default;
+      }
+      &-do{
+        @extend .title-regular;
+      }
+      &-rating{
+        @extend .blacks;
+        @extend .relative;
+        padding-left: 15px;
+        &:before{
+          content: "";
+          position: absolute;
+          @extend .bg-corp;
+        }
+      }
+    }
+  }
+  &-body{
+    padding-top: 15px;
+    @extend .relative;
+    &:before{
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 31px;
+      height: 16px;
+      @include bg("../img/review.png", 0 0, no-repeat, cover);
+    }
+    p{
+      margin-bottom: 15px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+  @include resp-min(sm){
+    &-header{
+      &-inf,
+      &-img{
+        display: inline-block;
+        vertical-align: top;
+      }
+      &-inf{
+        position: relative;
+        top: -7px;
+        padding-left: 20px;
+        &-do{
+          margin-left: -20px;
+        }
+        &-rating{
+          margin-left: -45px;
+          &:before{
+            left: 0;
+            top: 50%;
+            margin-top: -7px;
+            width: 2px;
+            height: 14px;
+          }
+        }
+      }
+    }
+    &-body{
+      &:before{
+        left: -36px;
+      }
+    }
+  }
+  @include resp-max(sm){
+    padding: 0 15px;
+    &-header{
+      text-align: center;
+      margin-bottom: 25px;
+      &-inf{
+        &-name{
+          margin-bottom: 0;
+        }
+        &-rating{
+          padding-top: 5px;
+          &:before{
+            width: 14px;
+            height: 2px;
+            top: 0;
+            left: 50%;
+            margin-left: -7px;
+          }
+        }
+      }
+    }
+  }
+}
+.owl{
+
+  &-nav{
+    position: absolute;
+    left: 0;
+    
+    width: 100%;
+  }
+  &-prev,
+  &-next{
+    position: absolute;
+    width: 34px;
+    height: 60px;
+    @include bg("../img/arrow-carousel.png", 0 0, no-repeat, cover);
+  }
+  
+  &-next{
+    right: 0;
+    left: auto;
+    transform: rotate(-180deg);
+  }
+  @include resp-min(md){
+    &-carousel{
+      padding: 0 50px;
+    }
+  }
+  @include resp-min(sm){
+    &-nav{
+      top: 30px;
+    }
+    &-prev{
+      left: 0;
+    }
+  }
+  @include resp-max(sm){
+    &-carousel{
+      padding-top: 70px;     
+    }
+    &-nav{
+      top: 0;
+    }
+    &-prev{
+      right: 60px;
+    }
+  }
 }

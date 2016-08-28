@@ -17,15 +17,22 @@ $(document).ready(function(){
 				}
 			}
 		});
-		$('.anchor').click(function(){
-			var href = $(this).attr('href');
-			$('body,html').animate({
-				scrollTop: $(href).offset().top
-			},2000);
-			return false;
-		});
 		$(window).on('hashchange', function(e){
 			history.replaceState ("", document.title, e.originalEvent.oldURL);
+		});
+		function anchorScroll(anchorBlock, anchorTime){
+			$("body, html").animate({
+				scrollTop: $(anchorBlock).offset().top
+			}, anchorTime);
+			return false;
+		}
+		$('.anchor').click(function(){
+			var href = $(this).attr('href');
+			//anchorScroll(href, 2000);
+			$("body, html").animate({
+				scrollTop: $(href).offset().top
+			}, 2000);
+			return false;
 		});
 		$("#question-btn").click(function(){
 			$("#question-toggle").slideToggle("slow");
@@ -34,14 +41,13 @@ $(document).ready(function(){
 				$(this).text("Скрыть вопросы");
 			}else{
 				$(this).text("Показать вопросы");
-				$('body,html').animate({
-					scrollTop: $("#question-wrap").offset().top
-				},"slow");
-				return false;
+				anchorScroll("#question-wrap", "slow");
 			}
 		});
 		$("#review-carousel").owlCarousel({
 			items: 1,
-			loop: true
+			loop: true,
+			nav: true,
+			navText: ["", ""]
 		});
 });	

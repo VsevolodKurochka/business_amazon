@@ -119,10 +119,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
       margin-left: -15px;
       margin-right: -15px;
     }
-  }
-  @include resp-max($br-name){
     .max-#{$br-name}-nom{
       margin-bottom: 0 !important;
+    }
+    .max-#{$br-name}-block{
+      display: block;
     }
   }
 }
