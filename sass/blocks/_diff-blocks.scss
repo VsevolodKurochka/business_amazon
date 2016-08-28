@@ -125,6 +125,9 @@
     @include resp-max(sm){
       text-align: center;
       margin-bottom: 10px;
+      &:last-child{
+        margin-bottom: 0;
+      }
       &:after{
         left: 50%;
       }
@@ -236,7 +239,7 @@
       &:before{
         width: 25px;
         height: 20px;
-        top: 3.5px;
+        top: 2.5px;
       }
     }
     @include resp-max(md){
@@ -408,7 +411,7 @@
     margin-bottom: 15px;
   }
   @include resp-min(sm){
-    min-height: 340px;
+    min-height: 350px;
     &-body{
       padding: 30px;
     }
@@ -469,7 +472,10 @@
       }
     }
     @include resp-max(sm){
-      margin-bottom: 60px;
+      
+      &-margin{
+        margin-bottom: 60px;
+      }
     }
   }
   .list{

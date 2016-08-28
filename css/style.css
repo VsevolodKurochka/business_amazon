@@ -549,6 +549,10 @@ End:  HIDDEN AND VISIBLE UTILITIES
     display: block;
   }
 }
+.no-m {
+  margin-bottom: 0 !important;
+}
+
 /* =====================
 End:  GRID SYSTEM
 ======================== */
@@ -1195,6 +1199,9 @@ End:  START FOOTER
     text-align: center;
     margin-bottom: 10px;
   }
+  .list li:last-child {
+    margin-bottom: 0;
+  }
   .list li:after {
     left: 50%;
   }
@@ -1290,7 +1297,7 @@ End:  START FOOTER
 .skew-b-small:before {
   width: 25px;
   height: 20px;
-  top: 3.5px;
+  top: 2.5px;
 }
 @media (max-width: 1024px) {
   .skew-b-small, .skew-b-big {
@@ -1467,7 +1474,7 @@ End:  START FOOTER
 }
 @media (min-width: 768px) {
   .module {
-    min-height: 340px;
+    min-height: 350px;
   }
   .module-body {
     padding: 30px;
@@ -1525,7 +1532,7 @@ End:  START FOOTER
   margin-bottom: 10px;
 }
 @media (max-width: 767px) {
-  .variant-b {
+  .variant-b-margin {
     margin-bottom: 60px;
   }
 }
