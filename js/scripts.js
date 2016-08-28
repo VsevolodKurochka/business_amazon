@@ -27,4 +27,21 @@ $(document).ready(function(){
 		$(window).on('hashchange', function(e){
 			history.replaceState ("", document.title, e.originalEvent.oldURL);
 		});
+		$("#question-btn").click(function(){
+			$("#question-toggle").slideToggle("slow");
+			$(this).toggleClass("clicked");
+			if ( $(this).hasClass("clicked") ) {
+				$(this).text("Скрыть вопросы");
+			}else{
+				$(this).text("Показать вопросы");
+				$('body,html').animate({
+					scrollTop: $("#question-wrap").offset().top
+				},"slow");
+				return false;
+			}
+		});
+		$("#review-carousel").owlCarousel({
+			items: 1,
+			loop: true
+		});
 });	

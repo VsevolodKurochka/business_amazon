@@ -21,16 +21,31 @@
     background-color: map-get($colors, "corporative");
   }
 }
-.subtitle{
-  @extend .blacks;
+.title{
+  font-size: 20px;
   margin-bottom: 15px;
+  &-regular{
+    @extend .title;
+    @extend .regular;
+  }
+  &.b-m{
+    margin-bottom: 30px;
+  }
+}
+.title-default{
+  @extend .blacks;
+  @extend .title;
 }
 .title{
   &-small{
-    margin-bottom: 20px;
+    @extend .title-default;
     @extend .text-center;
+    margin-bottom: 20px;
     &.no-m{
       margin-bottom: 0;
+    }
+    &-regular{
+      @extend .regular;
     }
   }
 }
@@ -64,7 +79,6 @@
 @include resp-min(sm){
   .title{
     &-small{
-      font-size: 20px;
       &.b-m{
         margin-bottom: 50px;
       }
@@ -84,9 +98,6 @@
     &.b-m{
       margin-bottom: 70px;
     }
-  }
-  .subtitle{
-    font-size: 20px;
   }
 }
 @include resp-min(md){

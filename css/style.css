@@ -302,7 +302,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .row, .vsection, .header, .footer, .modal-header, .modal-footer, .underline, .header-phone, .header-menu li, .skew-b, .skew-b-small, .skew-b-big {
+.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .row, .vsection, .header, .footer, .module-line, .modal-header, .modal-footer, .underline, .header-phone, .header-menu li, .skew-b, .skew-b-small, .skew-b-big, .question-title, .question-text {
   position: relative;
 }
 
@@ -318,11 +318,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .modal-header:after, .modal-footer:after, .cf:before, .row:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .modal-header:before, .modal-footer:before {
+.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .module-line:after, .modal-header:after, .modal-footer:after, .cf:before, .row:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .module-line:before, .modal-header:before, .modal-footer:before {
   content: "";
   display: table;
 }
-.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .modal-header:after, .modal-footer:after {
+.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .module-line:after, .modal-header:after, .modal-footer:after {
   clear: both;
 }
 
@@ -436,7 +436,7 @@ Start: COLOR AND SIZE
   color: #5bb85d;
 }
 
-.corporative {
+.corporative, .module-header-title, .variant-b-header-title, .question-title:before, .question-text:before {
   color: #fdbc30;
 }
 
@@ -483,7 +483,7 @@ End:  COLOR AND SIZE
 /* ===================== 
 Start: TEXT      
 ======================== */
-.ttu, .h3 {
+.ttu, .h3, .variant-b-header-title {
   text-transform: uppercase;
 }
 
@@ -510,8 +510,12 @@ Start: TEXT
   background-color: #fdbc30;
 }
 
-.subtitle {
+.title, .title-regular, .title-default, .title-small, .module-body-title, .trener-name, .trener-position {
+  font-size: 20px;
   margin-bottom: 15px;
+}
+.title.b-m, .b-m.title-regular, .b-m.title-default, .b-m.title-small, .b-m.module-body-title, .b-m.trener-name, .b-m.trener-position {
+  margin-bottom: 30px;
 }
 
 .title-small {
@@ -542,9 +546,6 @@ Start: TEXT
 }
 
 @media (min-width: 768px) {
-  .title-small {
-    font-size: 20px;
-  }
   .title-small.b-m {
     margin-bottom: 50px;
   }
@@ -565,10 +566,6 @@ Start: TEXT
   }
   .h3.b-m {
     margin-bottom: 70px;
-  }
-
-  .subtitle {
-    font-size: 20px;
   }
 }
 @media (min-width: 1025px) {
@@ -613,7 +610,7 @@ Start: TEXT
     font-size: 20px;
   }
 }
-.text-center, .title-small, .header-menu, .footer, .freedom {
+.text-center, .title-small, .header-menu, .footer, .freedom, .step, .when-b, .question-title:before, .question-text:before {
   text-align: center;
 }
 .text-left {
@@ -650,7 +647,7 @@ Start: TEXT
   }
 }
 @media (max-width: 767px) {
-  .max-sm-center {
+  .max-sm-center, .variant-b-body, .trener-wrap {
     text-align: center;
   }
 }
@@ -689,7 +686,7 @@ Start: Connect fonts
   font-family: pfdindisplaypro-reg;
   src: local("pfdindisplaypro-reg"), url(../fonts/pfdindisplaypro-reg.ttf);
 }
-.regular, .h2, body {
+.regular, .title-regular, .title-small-regular, .h2, body {
   font-family: pfdindisplaypro-reg;
 }
 
@@ -697,7 +694,7 @@ Start: Connect fonts
   font-family: pfdindisplaypro-black;
   src: local("pfdindisplaypro-black"), url(../fonts/pfdindisplaypro-black.ttf);
 }
-.blacks, .subtitle, .h1, .h3, .btn, .practicum .skew-b-small, .freedom-title {
+.blacks, .title-default, .title-small, .module-body-title, .trener-name, .trener-position, .h1, .h3, .btn, .practicum .skew-b-small, .freedom-title, .successful-b-title, .variant-b-header-title, .variant .list li:nth-child(even), .question-title {
   font-family: pfdindisplaypro-black;
 }
 
@@ -950,6 +947,12 @@ End:  START FOOTER
 .background-grey {
   background-color: #f9f9f9;
 }
+.background-grey-dark {
+  background-color: #f5f5f5;
+}
+.background-white {
+  background-color: #fff;
+}
 
 .transition, .btn, .btn-effect:before, .btn-yellow:before, .btn-yellow:after {
   transition: all .3s;
@@ -1012,6 +1015,10 @@ End:  START FOOTER
 .btn-yellow:hover:before, .btn-yellow:hover:after {
   height: 50%;
 }
+.btn-yellow.clicked {
+  outline: none;
+  box-shadow: 1px 1px 15px 5px rgba(253, 188, 48, 0.7);
+}
 @media (min-width: 768px) {
   .btn-single {
     margin-top: 70px;
@@ -1072,14 +1079,33 @@ End:  START FOOTER
   width: 5px;
   height: 5px;
 }
+@media (min-width: 768px) {
+  .list-skew li {
+    padding-left: 20px;
+  }
+  .list-skew li:after {
+    top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .list-skew li {
+    padding-top: 10px;
+  }
+}
+.list-skew li:after {
+  width: 11px;
+  height: 8px;
+  background: url("../img/skew.png") 0 0 no-repeat;
+  background-size: cover;
+}
 
-.vertical-image:before, .practicum-img:before, .freedom-img:before {
+.vertical-image:before, .practicum-img:before, .freedom-img:before, .step-img:before {
   content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-.vertical-image img, .practicum-img img, .freedom-img img {
+.vertical-image img, .practicum-img img, .freedom-img img, .step-img img {
   max-height: 100%;
   vertical-align: middle;
 }
@@ -1114,7 +1140,7 @@ End:  START FOOTER
 .skew-b-small:before {
   width: 25px;
   height: 20px;
-  top: 2px;
+  top: 3.5px;
 }
 @media (max-width: 1024px) {
   .skew-b-small, .skew-b-big {
@@ -1216,6 +1242,216 @@ End:  START FOOTER
 
 .successful {
   background: url("../img/successful.jpg") 0 0 no-repeat;
+  background-size: cover;
+}
+.successful-b {
+  margin-bottom: 50px;
+}
+.successful-b-title {
+  font-size: 20px;
+}
+.successful-b p {
+  margin-bottom: 15px;
+}
+.successful-b p:last-child {
+  margin-bottom: 0;
+}
+
+.module {
+  margin-bottom: 30px;
+  border: 2px solid #fdbc30;
+}
+.module-header {
+  position: relative;
+}
+.module-header-title {
+  display: inline-block;
+  padding: 0 15px;
+  position: relative;
+  top: -15px;
+  background-color: #fff;
+  font-size: 20px;
+}
+.module-body {
+  padding: 0 15px 30px 15px;
+}
+.module-body-title {
+  margin-bottom: 10px;
+}
+.module-line {
+  margin-bottom: 15px;
+}
+.module-line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #fdbc30;
+}
+.module .list {
+  min-height: 120px;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .module {
+    min-height: 340px;
+  }
+  .module-body {
+    padding: 30px;
+  }
+  .module-header-title {
+    position: absolute;
+    left: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .module-header {
+    text-align: center;
+  }
+}
+
+.step {
+  min-height: 180px;
+  margin-bottom: 15px;
+}
+.step-img {
+  height: 100px;
+}
+
+.variant {
+  background: url("../img/variant.jpg") 0 0 no-repeat;
+  background-size: cover;
+}
+.variant-wrap {
+  margin-top: 65px;
+}
+.variant-b {
+  border: 2px solid #fdbc30;
+}
+.variant-b-header {
+  position: absolute;
+  left: 13px;
+  top: -43px;
+}
+.variant-b-header-title {
+  font-size: 40px;
+}
+.variant-b-body {
+  padding: 15px;
+}
+@media (min-width: 1025px) {
+  .variant-b-body {
+    padding: 25px;
+  }
+}
+.variant-b-body p {
+  margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+  .variant-b {
+    margin-bottom: 60px;
+  }
+}
+.variant .list {
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+  .variant .plus {
+    padding-left: 20px;
+  }
+}
+
+.when-wrap {
+  margin-bottom: 50px;
+}
+@media (max-width: 1024px) {
+  .when-b {
+    margin-bottom: 30px;
+  }
+  .when-b .skew-b-small {
+    margin-bottom: 0;
+  }
+}
+.when-b-header {
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .when-b-text {
+    padding: 0 30px;
+  }
+}
+
+.trener-wrap {
+  margin-bottom: 50px;
+}
+.trener-position {
+  color: #707070;
+}
+@media (max-width: 767px) and (min-width: 480px) {
+  .trener-image img {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .trener-text {
+    margin-top: 50px;
+  }
+}
+
+.question {
+  padding-bottom: 25px;
+  border-bottom: 2px solid #dcdcdd;
+  margin-bottom: 30px;
+}
+.question:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+@media (max-width: 767px) {
+  .question {
+    padding-right: 20px;
+  }
+}
+.question-title {
+  margin-bottom: 5px;
+}
+.question-title:before {
+  content: "?";
+}
+.question-text:before {
+  content: "i";
+}
+.question-title, .question-text {
+  padding-left: 20px;
+}
+.question-title:before, .question-text:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: inherit;
+  width: 15px;
+}
+@media (max-width: 767px) {
+  .question-hide {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .question-btn-hide {
+    display: none;
+  }
+}
+
+.doing {
+  background: url("../img/doing.jpg") 0 0 no-repeat;
+  background-size: cover;
+}
+
+.review-wrap {
+  background: url("../img/review.jpg") 0 0 no-repeat;
   background-size: cover;
 }
 
@@ -1426,6 +1662,236 @@ Start: MODAL
 
 /* =====================
 End:  MODAL
+======================== */
+/* ===================== 
+Start: Owl Carousel - Animate Plugin      
+======================== */
+.owl-carousel .animated {
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+
+.owl-carousel .fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* 
+ *  Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  -webkit-transition: height 500ms ease-in-out;
+  -moz-transition: height 500ms ease-in-out;
+  -ms-transition: height 500ms ease-in-out;
+  -o-transition: height 500ms ease-in-out;
+  transition: height 500ms ease-in-out;
+}
+
+/* 
+ *  Core Owl Carousel CSS File
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+}
+
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  /* fix for flashing background */
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel .owl-controls .owl-dot {
+  cursor: pointer;
+  cursor: hand;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel.owl-loaded {
+  display: block;
+}
+
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+
+.owl-carousel .owl-refresh .owl-item {
+  display: none;
+}
+
+.owl-carousel .owl-item {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel.owl-text-select-on .owl-item {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.owl-carousel .owl-grab {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block;
+}
+
+/* 
+ *  Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+}
+
+/* 
+ *  Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: scale 100ms ease;
+  -moz-transition: scale 100ms ease;
+  -ms-transition: scale 100ms ease;
+  -o-transition: scale 100ms ease;
+  transition: scale 100ms ease;
+}
+
+.owl-carousel .owl-video-play-icon:hover {
+  -webkit-transition: scale(1.3, 1.3);
+  -moz-transition: scale(1.3, 1.3);
+  -ms-transition: scale(1.3, 1.3);
+  -o-transition: scale(1.3, 1.3);
+  transition: scale(1.3, 1.3);
+}
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none;
+}
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== 
+END: Owl Carousel - Animate Plugin      
 ======================== */
 /* =====================
 End:  DIFFERENT BLOCKS

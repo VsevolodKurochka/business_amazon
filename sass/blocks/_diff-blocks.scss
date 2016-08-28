@@ -4,9 +4,15 @@
 .background{
   &-grey{
     background-color: #f9f9f9;
+    &-dark{
+      background-color: #f5f5f5;
+    }
   }
   &-yellow{
     @extend .bg-corp;
+  }
+  &-white{
+    background-color: #fff;
   }
 }
 .transition{
@@ -81,6 +87,10 @@
         height: 50%;
       }
     }
+    &.clicked{
+      outline: none;
+      box-shadow: 1px 1px 15px 5px rgba(253,188,48,0.7);
+    }
   }
   &-single{
     @include resp-min(sm){
@@ -91,49 +101,6 @@
     }
   }
 }
-// .toggle{
-//   &-subtitle-no-margin{
-//     .subtitle{
-//       margin-bottom: 0;
-//     }
-//   }
-//   &-inner{
-//     @extend .cf;
-//     @include resp-min(sm){
-//       &-big-margin{
-//        margin-bottom: 150px;
-//         &:last-child{
-//           margin-bottom: 75px;
-//         }
-//       }
-//       &-small-margin{
-//         margin-bottom: 50px;
-//         &:last-child{
-//           margin-bottom: 0;
-//         }
-//       }
-//     }
-//     &-img{
-//       @extend .text-center;
-//     }
-//   }
-//   @include resp-min(sm){
-//     //ODD - нечетное
-//     .toggle-inner-right:nth-child(odd) .toggle-inner-img,
-//     .toggle-inner-right:nth-child(even) .toggle-inner-text,
-//     .toggle-inner-left:nth-child(odd) .toggle-inner-text,
-//     .toggle-inner-left:nth-child(even).toggle-inner-img {      
-//         float: right;
-//     }
-//     .toggle-inner-right:nth-child(even){
-//       .toggle-inner-text{
-//         .subtitle,p{
-//           text-align: right;
-//         }
-//       }
-//     }   
-//   }
-// }
 .list{
   li{
     position: relative; 
@@ -178,6 +145,24 @@
         width: 5px;
         height: 5px;
         @extend .bg-corp;
+      }
+    }
+  }
+  &-skew{
+    li{
+      @include resp-min(sm){
+        padding-left: 20px;
+        &:after{
+          top: 10px;
+        }
+      }
+      @include resp-max(sm){
+        padding-top: 10px;
+      }
+      &:after{
+        width: 11px;
+        height: 8px;
+        @include bg("../img/skew.png", 0 0, no-repeat, cover);
       }
     }
   }
@@ -240,7 +225,7 @@
       &:before{
         width: 25px;
         height: 20px;
-        top: 2px;
+        top: 3.5px;
       }
     }
     @include resp-max(md){
@@ -335,4 +320,244 @@
 }
 .successful{
   @include bg("../img/successful.jpg", 0 0 , no-repeat , cover);
+  &-b{
+    margin-bottom: 50px;
+    &-title{
+      @extend .blacks;
+      font-size: 20px;
+    }
+    p{
+      margin-bottom: 15px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.module{
+  
+  margin-bottom: 30px;
+  border: 2px solid map-get($colors, "corporative");
+  &-header{
+    position: relative;
+    &-title{
+      display: inline-block;
+      padding: 0 15px;
+      position: relative;
+      top: -15px;
+      
+      background-color: #fff;
+      font-size: 20px;
+      @extend .corporative;
+    }
+  }
+  &-body{
+    padding: 0 15px 30px 15px;
+    &-title{
+      @extend .title-default;
+      margin-bottom: 10px;
+    }
+  }
+  &-line{
+    @extend .cf;
+    @extend .relative;
+    margin-bottom: 15px;
+    &:after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: map-get($colors, "corporative");
+    }
+  }
+  .list{
+    min-height: 120px;
+    margin-bottom: 15px;
+  }
+  @include resp-min(sm){
+    min-height: 340px;
+    &-body{
+      padding: 30px;
+    }
+    &-header{
+      &-title{
+        position: absolute;
+        left: 15px;
+      }
+    }
+  }
+  @include resp-max(sm){
+    &-header{
+      text-align: center;
+    }
+    &-body{
+
+    }
+  }
+}
+.step{
+  @extend .text-center;
+  min-height: 180px;
+  margin-bottom: 15px;
+  &-img{
+    @extend .vertical-image;
+    height: 100px;
+  }
+}
+.variant{
+  @include bg("../img/variant.jpg", 0 0 , no-repeat ,cover);
+  &-wrap{
+    margin-top: 65px;
+  }
+  &-b{
+    border: 2px solid map-get($colors, "corporative");
+    &-header{
+      position: absolute;
+      left: 13px;
+      top: -43px;
+      &-title{
+        font-size: 40px;
+        @extend .corporative;
+        @extend .ttu;
+        @extend .blacks;
+      }
+    }
+    &-body{
+      padding: 15px;
+      @extend .max-sm-center;
+      @include resp-min(md){
+        padding: 25px;
+      }
+      p{
+        margin-bottom: 10px;
+      }
+    }
+    @include resp-max(sm){
+      margin-bottom: 60px;
+    }
+  }
+  .list{
+    margin-bottom: 30px;
+    li{
+      &:nth-child(even){
+        @extend .blacks;
+      }
+    }
+  }
+  @include resp-min(sm){
+    .plus{
+      padding-left: 20px;
+    }
+  }
+}
+.when{
+  &-wrap{
+    margin-bottom: 50px;
+  }
+  &-b{
+    @extend .text-center;
+    @include resp-max(md){
+      margin-bottom: 30px;
+      .skew-b-small{
+        margin-bottom: 0;
+      }
+    }
+    &-header{
+      font-size: 20px;
+    }
+    &-text{
+      @include resp-min(sm){
+        padding: 0 30px;
+      }
+    }
+  }
+}
+.trener{
+  &-wrap{
+    margin-bottom: 50px;
+    @extend .max-sm-center;
+  }
+  
+  &-name{
+    @extend .title-default;
+  }
+  &-position{
+    @extend .title-default;
+    color: #707070;
+  }
+  @include resp-max(sm){
+    @include resp-min(xs){
+      &-image{
+        img{
+          width: 80%;
+        }
+      } 
+    }   
+  }
+  @include resp-min(md){
+    &-text{
+      margin-top: 50px;
+    }
+  }
+}
+.question{
+  padding-bottom: 25px;
+  border-bottom: 2px solid #dcdcdd;
+  margin-bottom: 30px;
+
+  &:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  @include resp-max(sm){
+    padding-right: 20px;
+  }
+  &-title{
+    @extend .blacks;
+    @extend .relative;
+    margin-bottom: 5px;
+    &:before{
+      content: "?";
+    }
+  }
+  &-text{
+    @extend .relative;
+    &:before{
+      content: "i";
+    }
+  }
+  &-title,
+  &-text{
+    &:before{
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: inherit;
+      @extend .corporative;
+      width: 15px;
+      @extend .text-center;
+    }
+    padding-left: 20px;
+  }
+  &-hide{
+
+  }
+  @include resp-max(sm){
+    &-hide{
+      display: none;
+    }
+  }
+  @include resp-min(sm){
+    &-btn-hide{
+      display: none;
+    }
+  }
+}
+.doing{
+  @include bg("../img/doing.jpg", 0 0, no-repeat, cover);
+}
+.review-wrap{
+  @include bg("../img/review.jpg", 0 0, no-repeat, cover);
 }
