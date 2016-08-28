@@ -260,12 +260,14 @@
     display: inline-block;
     @extend .relative;
     @extend .blacks;
+    padding: 0 5px;
+    margin: 0 5px;
     &:after{
       content: "";
       position: absolute;
-      left: -10%;
+      left: 0;
       top: 0;
-      width: 120%;
+      width: 100%;
       height: 100%;
       z-index: -1;
       -ms-transform: skewX(-30deg); 
@@ -689,6 +691,9 @@
           }
         }
       }
+    }
+    .max-sm-block{
+      margin-top: 10px;
     }
   }
 }
