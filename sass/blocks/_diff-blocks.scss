@@ -22,16 +22,23 @@
   border: none;
   border-radius: 3px;
   max-width: 100%;
-  padding: 20px 40px;
+  padding: 20px 10px;
   position: relative;
   overflow: hidden;
-  @extend .transition;
   text-decoration: none;
   z-index: 2;
   @extend .blacks;
   @extend .block-inline;
-  @include size(text_default);
+  @extend .transition;
   @include color("white");
+  font-size: 15px;
+  @include resp-min(sm){
+    padding: 20px 40px;
+    @include size(text_default);
+  }
+  @include resp-max(sm){
+    width: 100%;
+  }
   &-effect{
    &:before{
       content: "";
@@ -91,6 +98,7 @@
       outline: none;
       box-shadow: 1px 1px 15px 5px rgba(253,188,48,0.7);
     }
+
   }
   &-single{
     @include resp-min(sm){
@@ -158,6 +166,9 @@
       }
       @include resp-max(sm){
         padding-top: 10px;
+        &:after{
+          margin-left: -5.5px;
+        }
       }
       &:after{
         width: 11px;
@@ -292,8 +303,9 @@
     @include bg("../img/banknota.jpg", left 0, no-repeat, cover);
   }
   &-inner-row{
-    margin-top: 55px;
-    padding: 55px 15px;
+    @include resp-min(sm){
+      margin-top: 55px;
+    }
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
@@ -338,6 +350,9 @@
   
   margin-bottom: 30px;
   border: 2px solid map-get($colors, "corporative");
+  @include resp-max(sm){
+    text-align: center;
+  }
   &-header{
     position: relative;
     &-title{
@@ -361,16 +376,11 @@
   &-line{
     @extend .cf;
     @extend .relative;
+    display: inline-block;
     margin-bottom: 15px;
-    &:after{
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 40px;
-      height: 2px;
-      background-color: map-get($colors, "corporative");
-    }
+    width: 40px;
+    height: 2px;
+    background-color: map-get($colors, "corporative");
   }
   .list{
     min-height: 120px;

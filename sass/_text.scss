@@ -139,7 +139,7 @@
 @include resp-max(xs){
   .h{
     &3{
-      @include size(text_big);
+      font-size: 18px;
     }
   }
 }
